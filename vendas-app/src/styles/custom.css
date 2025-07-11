@@ -1,0 +1,10 @@
+/* Defina suas cores customizadas aqui */
+.button.is-custom-purple {
+    background-color: #8A2BE2; /* Exemplo: BlueViolet */
+    border-color: transparent;
+    color: #fff;
+}
+
+.button.is-custom-purple:hover {
+    background-color: #7e25cb; /* Um tom um pouco mais escuro para o hover */
+}
