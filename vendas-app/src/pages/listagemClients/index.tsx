@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Layout } from "@/components"
 import { Input,InputCpf } from "@/components/Input"
 import { useFormik } from "formik"
@@ -9,8 +9,9 @@ import { Page } from "@/app/models/pageModel"
 import { useClientService } from "@/app/cientService"
 import Link from "next/link"
 import { Button } from "primereact/button"
-import { useRouter } from "next/router"
 import { ConfirmPopup, confirmPopup } from 'primereact/confirmpopup';
+import { useRouter } from "next/router"
+
 
 interface ConsultaCientesProps{
     nome?: string;
@@ -26,10 +27,10 @@ export default function ListagemClients(){
         content: [],
         first:0,
         number: 0,
-        size: 5,
+        size: 8,
         totalElements: 0
     });
-
+   
     const handleSubmit = (filtro: ConsultaCientesProps) => {
         // Ao submeter, busca a primeira página com os novos filtros
         handlePageChange({ page: 0, rows: cliente.size, first: 0 });

@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app'
 import "primereact/resources/themes/md-light-indigo/theme.css";
-
+//import 'primeflex/primeflex.css';
 //import "primereact/resources/themes/lara-light-cyan/theme.css";
 import "primereact/resources/primereact.min.css";
 // import 'assets/theme.css'; // Este arquivo não foi encontrado no projeto

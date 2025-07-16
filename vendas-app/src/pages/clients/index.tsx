@@ -11,8 +11,7 @@ export default function Clients(){
     const router = useRouter();
     const idUrl = router.query.id;
     const [messages, setMessages] = useState<Alert[]>([]);
-
-    const [cliente, setCliente] = useState<Cliente>({
+     const [cliente, setCliente] = useState<Cliente>({
           id: '',
           nome: '',
           cpf: '',
@@ -23,6 +22,24 @@ export default function Clients(){
          cadastro: '',
 
     });
+
+    useEffect(() =>{
+        if(!idUrl)return;
+
+        const getCliente = async () => {
+            try {
+                const clienteEncontrado = await service.listar(Number(idUrl));
+                setCliente(clienteEncontrado);
+                console.log("Cliente encontrado:", clienteEncontrado);
+            } catch (error) {
+                console.error("Erro ao buscar cliente:", error);
+                setMessages([{ texto: "Ocorreu um erro ao buscar o cliente.", tipo: "danger" }]);
+            }
+        }
+        getCliente();
+    },[idUrl])
+
+   
   
       //  function convertDateToISO(date: string): string {
            // const [dia, mes, ano] = date.split('/');

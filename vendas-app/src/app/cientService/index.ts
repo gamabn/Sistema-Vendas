@@ -30,7 +30,7 @@ export const useClientService = () => {
                 nome: string = '', 
                 cpf: string = '',
                  page: number = 0,
-                  size: number = 10,
+                  size: number = 8,
                   
                 ): Promise<Page<Cliente>> =>{
                     const url = `${resourceUrl}?nome=${nome}&cpf=${cpf}&page=${page}&size=${size}`

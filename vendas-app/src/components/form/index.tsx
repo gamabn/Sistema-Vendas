@@ -2,6 +2,7 @@ import { Cliente } from "@/app/models/Clientes";
 import { useFormik } from "formik";
 import { Input, InputCpf, InputDate, InputTelefone } from '@/components/Input';
 import { validationSchema } from "../validacaoSchema";
+import Router from "next/router";
 
 
 interface ClientFormProps {
@@ -29,6 +30,7 @@ const formSchema = {
 
 // O schema inicial para o formulário
 export const ClienteForm: React.FC<ClientFormProps> = ({ cliente, onSubmit }) => {
+   
     const formik = useFormik({
         initialValues: {...formSchema, ...cliente },
         onSubmit, // Simplificado: passa a função onSubmit diretamente
@@ -133,6 +135,15 @@ export const ClienteForm: React.FC<ClientFormProps> = ({ cliente, onSubmit }) =>
                     <div className="control">
                         <button className="button is-link" type="submit">
                             {formik.values.id ? 'Atualizar' : 'Salvar'}
+                        </button>
+                    </div>
+
+                    <div className="control">
+                        <button 
+                        onClick={() => Router.push('/listagemClients')}
+                        className="button is-info" 
+                        type="button">
+                          voltar
                         </button>
                     </div>
                 </div>
